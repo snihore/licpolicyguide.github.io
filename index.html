@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIC Insurance Plans</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7fc;
+            color: #333;
+        }
+        header {
+            background-color: #003366;
+            color: #fff;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        header .logo {
+            font-size: 26px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+        header .cta-button {
+            background-color: #ffcc00;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            color: #003366;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        header .cta-button:hover {
+            background-color: #e6b800;
+        }
+        .hero {
+            background: url('https://via.placeholder.com/1500x600') no-repeat center center/cover;
+            text-align: center;
+            padding: 120px 30px;
+            box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.4);
+        }
+        .hero h1 {
+            font-size: 42px;
+            margin: 0;
+            font-weight: 600;
+            color: #003366;
+        }
+        .hero p {
+            font-size: 22px;
+            margin: 20px 0;
+            font-weight: 400;
+        }
+        .cta-section {
+            margin-top: 30px;
+        }
+        .cta-button-form {
+            padding: 14px 35px;
+            background-color: #ffcc00;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .cta-button-form:hover {
+            background-color: #e6b800;
+        }
+        section {
+            padding: 60px 30px;
+        }
+        section h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        .policy-card {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+        .policy-card:hover {
+            transform: translateY(-5px);
+        }
+        .policy-card h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #003366;
+            font-weight: 600;
+        }
+        .policy-card p {
+            font-size: 18px;
+            margin: 10px 0;
+            color: #555;
+        }
+        .policy-table {
+            width: 100%;
+            margin: 20px 0;
+            border-collapse: collapse;
+            text-align: center;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .policy-table th, .policy-table td {
+            border: 1px solid #ddd;
+            padding: 16px;
+        }
+        .policy-table th {
+            background-color: #003366;
+            color: #fff;
+        }
+        .btn-download {
+            background-color: #28a745;
+            padding: 10px 20px;
+            border: none;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-top: 15px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+        .btn-download:hover {
+            background-color: #218838;
+        }
+        .cta-buttons {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .cta-buttons a {
+            margin: 0 15px;
+            padding: 14px 30px;
+            background-color: #ffcc00;
+            color: #003366;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .cta-buttons a:hover {
+            background-color: #e6b800;
+        }
+        footer {
+            background-color: #003366;
+            color: #fff;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+        footer .logo {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        footer .download-brochure {
+            margin-top: 25px;
+        }
+        footer .download-brochure a {
+            color: #ffcc00;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: 2px solid #ffcc00;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        footer .download-brochure a:hover {
+            background-color: #ffcc00;
+            color: #003366;
+        }
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            padding: 20px;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 32px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .whatsapp-button a {
+            color: #fff;
+        }
+
+        /* Mobile Responsiveness */
+        @media screen and (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            header .cta-button {
+                margin-top: 10px;
+            }
+            .hero h1 {
+                font-size: 28px;
+            }
+            .hero p {
+                font-size: 18px;
+            }
+            section h2 {
+                font-size: 28px;
+            }
+            .policy-card {
+                margin: 15px 0;
+                padding: 15px;
+            }
+            .policy-card h3 {
+                font-size: 24px;
+            }
+            .policy-table th, .policy-table td {
+                padding: 12px;
+                font-size: 14px;
+            }
+            .cta-buttons a {
+                font-size: 16px;
+                padding: 12px 25px;
+            }
+            .whatsapp-button {
+                bottom: 15px;
+                right: 15px;
+                font-size: 28px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .hero h1 {
+                font-size: 22px;
+            }
+            .hero p {
+                font-size: 16px;
+            }
+            section h2 {
+                font-size: 24px;
+            }
+            .cta-buttons a {
+                font-size: 14px;
+                padding: 10px 20px;
+            }
+            .policy-table th, .policy-table td {
+                padding: 10px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo"><img src="lic_logo.png" height="40px" /></div>
+        <button class="cta-button">Call Now</button>
+    </header>
+
+    <section class="hero">
+        <h1>Secure Your Future with LIC’s Best Insurance Plans!</h1>
+        <p>Guaranteed Returns | Lifetime Income | Tax Benefits</p>
+        <p>✅ Trusted by Millions of Families in India</p>
+        <p>✅ Best Plans for Savings + Protection</p>
+        <p>✅ 100% Safe & Secure Investment</p>
+        <div class="cta-section">
+            <button href="#contact" class="cta-button-form">Get a Free Quote</button>
+        </div>
+    </section>
+
+    <section>
+        <h2>Our Best-Selling LIC Plans with Example Premiums & Maturity</h2>
+
+        <div class="policy-card">
+            <h3>LIC Jeevan Labh</h3>
+            <p>✅ Best For: Savings + Life Cover</p>
+            <p>✅ Premium Paying Term: 10, 15, 16 years</p>
+            <p>✅ Maturity Term: 16, 21, 25 years</p>
+            <p>✅ Death Benefit: Sum Assured + Bonuses</p>
+            <p>💰 Example Premium & Maturity Calculation</p>
+            <table class="policy-table">
+                <tr>
+                    <th>Sum Assured</th>
+                    <th>Monthly Premium</th>
+                    <th>Expected Maturity Amount</th>
+                </tr>
+                <tr>
+                    <td>₹2,00,000</td>
+                    <td>₹830</td>
+                    <td>₹4.5 - ₹5 lakh</td>
+                </tr>
+                <tr>
+                    <td>₹5,00,000</td>
+                    <td>₹2,080</td>
+                    <td>₹11 - ₹12.5 lakh</td>
+                </tr>
+                <tr>
+                    <td>₹10,00,000</td>
+                    <td>₹4,150</td>
+                    <td>₹22 - ₹25 lakh</td>
+                </tr>
+                <tr>
+                    <td>₹25,00,000</td>
+                    <td>₹10,400</td>
+                    <td>₹55 - ₹60 lakh</td>
+                </tr>
+            </table>
+            <a href="jeevan_labh_brochure.pdf" class="btn-download">Download Jeevan Labh Brochure</a>
+        </div>
+
+        <div class="policy-card">
+            <h3>LIC Jeevan Umang</h3>
+            <p>✅ Best For: Pension & Lifetime Earnings</p>
+            <p>✅ Annual Payout: 8% of Sum Assured after PPT ends</p>
+            <p>✅ Premium Paying Term: 15, 20, 25, 30 years</p>
+            <p>✅ Maturity: Sum Assured + Bonuses at Age 100</p>
+            <p>💰 Example Premium & Maturity Calculation</p>
+            <table class="policy-table">
+                <tr>
+                    <th>Sum Assured</th>
+                    <th>Monthly Premium</th>
+                    <th>Annual Payout</th>
+                    <th>Expected Maturity Amount</th>
+                </tr>
+                <tr>
+                    <td>₹2,00,000</td>
+                    <td>₹750</td>
+                    <td>₹16,000/year</td>
+                    <td>₹4 - ₹5 lakh</td>
+                </tr>
+                <tr>
+                    <td>₹5,00,000</td>
+                    <td>₹1,900</td>
+                    <td>₹40,000/year</td>
+                    <td>₹10 - ₹12 lakh</td>
+                </tr>
+                <tr>
+                    <td>₹10,00,000</td>
+                    <td>₹3,750</td>
+                    <td>₹80,000/year</td>
+                    <td>₹22 - ₹25 lakh</td>
+                </tr>
+                <tr>
+                    <td>₹25,00,000</td>
+                    <td>₹9,300</td>
+                    <td>₹2,00,000/year</td>
+                    <td>₹55 - ₹60 lakh</td>
+                </tr>
+            </table>
+            <a href="jeevan_umang_brochure.pdf" class="btn-download">Download Jeevan Umang Brochure</a>
+        </div>
+
+        <div class="policy-card">
+            <h3>LIC Jeevan Anand</h3>
+            <p>✅ Best For: Lifetime Protection + Savings</p>
+            <p>✅ Premium Paying Term: Equal to policy term (15-35 years)</p>
+            <p>✅ Maturity: Sum Assured + Bonuses</p>
+            <p>✅ Extra Life Cover: Even After Maturity</p>
+            <p>💰 Example Premium & Maturity Calculation</p>
+            <table class="policy-table">
+                <tr>
+                    <th>Sum Assured</th>
+                    <th>Monthly Premium</th>
+                    <th>Expected Maturity Amount</th>
+                    <th>Post-Maturity Life Cover</th>
+                </tr>
+                <tr>
+                    <td>₹2,00,000</td>
+                    <td>₹890</td>
+                    <td>₹4.5 - ₹5 lakh</td>
+                    <td>₹2,00,000</td>
+                </tr>
+                <tr>
+                    <td>₹5,00,000</td>
+                    <td>₹2,200</td>
+                    <td>₹11 - ₹12 lakh</td>
+                    <td>₹5,00,000</td>
+                </tr>
+                <tr>
+                    <td>₹10,00,000</td>
+                    <td>₹4,300</td>
+                    <td>₹22 - ₹25 lakh</td>
+                    <td>₹10,00,000</td>
+                </tr>
+                <tr>
+                    <td>₹25,00,000</td>
+                    <td>₹10,600</td>
+                    <td>₹55 - ₹60 lakh</td>
+                    <td>₹25,00,000</td>
+                </tr>
+            </table>
+            <a href="jeevan_anand_brocure.pdf" class="btn-download">Download Jeevan Anand Brochure</a>
+        </div>
+
+        <div class="cta-buttons">
+            <a href="tel:+917049000425">Call Now</a>
+            <a href="https://wa.me/7049000425">WhatsApp Us</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="logo"><img src="lic_logo.png" height="40px" /></div>
+        <p>We are an official LIC agent</p>
+    </footer>
+
+    <div class="whatsapp-button">
+        <a href="https://wa.me/7049000425">📱</a>
+    </div>
+
+</body>
+</html>
